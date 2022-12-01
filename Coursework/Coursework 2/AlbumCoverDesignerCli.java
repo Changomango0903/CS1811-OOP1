@@ -17,13 +17,20 @@ public class AlbumCoverDesignerCli{
       int position = 0;
       while(position < 6){
         input[position] = k.next().charAt(0);
-        position++;
-      }
-      for (char l : input){
-        if (l != 'A' || l != 'B' || l != 'C' || l != 'D' || l != 'E' || l != 'F' || l != 'G' || l != 'H' || l != 'I') {
+        char[] musicians = {'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I'};
+        boolean isValid = false;
+        for (char l : musicians){
+          if (input[position] == l){
+            isValid = true;
+            break;
+          }
+        }
+        if (!isValid){
           System.out.println("Invalid line up!");
           break;
         }
+
+        position++;
       }
       if (game.testDraftCover(new LineUp(input))) {
         System.out.println("Congratulations!");

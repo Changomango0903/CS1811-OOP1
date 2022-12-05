@@ -37,7 +37,7 @@ public class DraftCover{
   public int getNumGood(){
     int good = 0;
     for(int i = 0; i < 6;i++){
-        if (suggestion.getMusician(j) == solution.getMusician(i)){
+        if (suggestion.getMusician(i) == solution.getMusician(i)){
           good++;
         }
     }

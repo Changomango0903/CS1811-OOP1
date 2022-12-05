@@ -31,6 +31,22 @@ public class AlbumCoverGame{
   //   }
   // }
 
+  public AlbumCoverGame(){
+    char[] lineup = new char[6];
+    char[] musicians = {'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I'};
+    for(int i = 0; i < lineup.length; i++){
+      while(true){
+        int rand = (int)(Math.random()*9);
+        if(musicians[rand] != '0'){
+          lineup[i] = musicians[rand];
+          musicians[rand] = '0';
+          break;
+        }
+      }
+    }
+    this.solution = new LineUp(lineup);
+
+  }
   //Construct AlbumCoverGame with LineUp object
   public AlbumCoverGame(LineUp solution){
     this.solution = solution;

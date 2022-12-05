@@ -1,5 +1,4 @@
 public class LineUp{
-  private char[] musicians = {'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I'};
   private char[] lineup;
   public LineUp(char[] lineup){
     this.lineup = lineup;

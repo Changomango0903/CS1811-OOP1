@@ -14,31 +14,28 @@ public class AlbumCoverDesignerCli{
       }
 
       System.out.println("Enter line up:");
+      String comparison = "ABCDEFGHI";
       int position = 0;
+      boolean isValid = true;
       while(position < 6){
-        input[position] = k.next().charAt(0);
-        char[] musicians = {'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I'};
-        boolean isValid = false;
-        for (char l : musicians){
-          if (input[position] == l){
-            isValid = true;
-            break;
-          }
+        char musician = k.next().charAt(0);
+        if(comparison.indexOf(musician) == -1){
+          isValid = false;
         }
-        if (!isValid){
-          System.out.println("Invalid line up!");
-          break;
-        }
-
+        input[position] = musician;
         position++;
       }
-      if (game.testDraftCover(new LineUp(input))) {
+      if(!isValid){
+        System.out.println("Invalid line up!");
+        continue;
+      }
+      boolean guessResult = game.testDraftCover(new LineUp(input));
+      if (guessResult) {
         System.out.println("Congratulations!");
         playing = false;
         break;
       }
       else{
-        game.testDraftCover(new LineUp(input));
         continue;
       }
     }

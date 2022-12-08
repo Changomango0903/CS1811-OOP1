@@ -1,7 +1,7 @@
 import java.util.random.*;
 public class AlbumCoverGame{
   private LineUp solution;
-  private DraftCover cursor;
+  private LinkedList cursor;
 
 
   // public AlbumCoverGame(){
@@ -53,8 +53,8 @@ public class AlbumCoverGame{
   }
   
   public boolean testDraftCover(LineUp suggestion){
-    cursor = new DraftCover(suggestion, this.solution, cursor);
-    if(cursor.getNumGood() == 6){
+    cursor = new LinkedList(cursor ,new DraftCover(suggestion, this.solution));
+    if(cursor.getPayload().getNumGood() == 6){
       return true;
     }
     else{
@@ -62,7 +62,7 @@ public class AlbumCoverGame{
     } 
   }
 
-  public DraftCover getPreviousDraftCovers(){ return cursor; }
+  public LinkedList getPreviousDraftCovers(){ return cursor; }
 
   public LineUp getSolution(){
     return solution;
@@ -80,7 +80,7 @@ public class AlbumCoverGame{
       boolean b1 = acg0.testDraftCover(lu2);
       // The type of ldc0 was inferred from your definition of
       // getPreviousDraftCovers. The tester has not verified it.
-      DraftCover ldc0 = acg0.getPreviousDraftCovers();
+      LinkedList ldc0 = acg0.getPreviousDraftCovers();
       String s0 = ldc0.toString(); 
       System.out.println(s0);
   }

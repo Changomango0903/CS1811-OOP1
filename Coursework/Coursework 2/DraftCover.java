@@ -1,37 +1,28 @@
 public class DraftCover{
   private LineUp suggestion, solution;
-  private DraftCover next;
-  //DraftCover Constructor
-  public DraftCover(LineUp suggestion, LineUp solution){
+  public DraftCover(LineUp suggestion, LineUp solution) {
     this.suggestion = suggestion;
     this.solution = solution;
   }
 
   //Second constructor to create the LinkedList data structure
-  public DraftCover(LineUp suggestion, LineUp solution, DraftCover next){
-     this.suggestion = suggestion;
-     this.solution = solution;
-     this.next = next;
-  }
+  // public DraftCover(LineUp suggestion, LineUp solution, DraftCover next){
+  //    this.suggestion = suggestion;
+  //    this.solution = solution;
+  //    this.next = next;
+  // }
 
   //returns next LinkedList node
-  public DraftCover getNext(){ return this.next; }
+  // public DraftCover getNext(){ return this.next; }
   //returns LineUp suggestion object
   public LineUp getLineUp(){ return this.suggestion;}
 
 
   //toString which returns all previous instances with recursion
   @Override
-  public String toString(){
-     DraftCover current = this;
-     if(current.getNext() != null){
-       current = current.getNext();
-       return this.suggestion + " (Too left " + this.getNumTooLeft() + ", Good " + this.getNumGood() + ", Too right " + this.getNumTooRight() + ")\n" + current.toString();
-     }
-     else{
-     return this.suggestion + " (Too left " + this.getNumTooLeft() + ", Good " + this.getNumGood() + ", Too right " + this.getNumTooRight() + ")";
-     }
-   }
+  public String toString(){ 
+    return this.suggestion + " (Too left " + this.getNumTooLeft() + ", Good " + this.getNumGood() + ", Too right " + this.getNumTooRight() + ")";
+  }
 
   //returns n number of correctly placed musicians
   public int getNumGood(){

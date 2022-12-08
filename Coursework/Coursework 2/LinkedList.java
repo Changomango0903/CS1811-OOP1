@@ -12,8 +12,9 @@ public class LinkedList{
 
   public String toString(){
     String output = "";
-    for(LinkedList cursor = this; cursor != null; cursor = cursor.getNext()){
-      output += cursor.getPayload() + "\n";
+    output += this.getPayload();
+    for(LinkedList cursor = this.getNext(); cursor != null; cursor = cursor.getNext()){
+      output += "\n" + cursor.getPayload();
     }
     return output;
   }
